@@ -46,7 +46,8 @@ RUN printf '%s\n' \
     'git submodule update --init --recursive' \
     'echo "Building Android APK for Quest..."' \
     'cd /src/android' \
-    './gradlew --no-daemon --stacktrace assembleDebug' \
+    'chmod +x ./gradlew'
+    'bash ./gradlew --no-daemon --stacktrace assembleDebug' \
     'APK="/src/android/app/build/outputs/apk/debug/app-debug.apk"' \
     'test -f "$APK"' \
     'mkdir -p /out' \
